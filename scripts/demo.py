@@ -30,7 +30,7 @@ class FischGPTDemo:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model_id = "kristianfischerai12345/fischgpt-sft"
         
-        print("🤖 FischGPT-SFT Demo")
+        print("FischGPT-SFT Demo")
         print("=" * 50)
         print(f"Device: {self.device}")
         print(f"Model: {self.model_id}")
@@ -40,7 +40,7 @@ class FischGPTDemo:
         """Load FischGPT-SFT from HuggingFace Hub."""
         
         try:
-            print("📦 Loading FischGPT-SFT from HuggingFace Hub...")
+            print("Loading FischGPT-SFT from HuggingFace Hub...")
             
             self.model = GPT2LMHeadModel.from_pretrained(self.model_id)
             self.tokenizer = GPT2Tokenizer.from_pretrained(self.model_id)
@@ -52,11 +52,11 @@ class FischGPTDemo:
             self.model.to(self.device)
             self.model.eval()
             
-            print("✅ Model loaded successfully!")
+            print("Model loaded successfully!")
             return True
             
         except Exception as e:
-            print(f"❌ Failed to load model: {e}")
+            print(f"Failed to load model: {e}")
             return False
     
     def generate_response(self, user_message, max_length=200, temperature=0.8, top_p=0.9):
@@ -108,7 +108,7 @@ class FischGPTDemo:
     def run_examples(self):
         """Run automated examples to showcase capabilities."""
         
-        print("\n💡 EXAMPLE DEMONSTRATIONS")
+        print("\nEXAMPLE DEMONSTRATIONS")
         print("=" * 50)
         
         examples = [
@@ -137,16 +137,16 @@ class FischGPTDemo:
             result = self.generate_response(example['prompt'], max_length=150, temperature=0.7)
             
             if "error" in result:
-                print(f"❌ {result['error']}")
+                print(f"{result['error']}")
                 continue
             
             print(f"FischGPT: {result['response']}")
-            print(f"⚡ {result['tokens']} tokens in {result['time']:.2f}s ({result['speed']:.1f} tok/s)")
+            print(f"{result['tokens']} tokens in {result['time']:.2f}s ({result['speed']:.1f} tok/s)")
     
     def interactive_mode(self):
         """Interactive chat mode."""
         
-        print("\n💬 INTERACTIVE CHAT MODE")
+        print("\nINTERACTIVE CHAT MODE")
         print("=" * 50)
         print("Chat with FischGPT! Type 'quit' to exit, 'help' for tips.")
         print("Perfect for live demonstrations and interviews!")
@@ -157,10 +157,10 @@ class FischGPTDemo:
                 user_input = input("You: ").strip()
                 
                 if user_input.lower() == 'quit':
-                    print("👋 Thanks for trying FischGPT!")
+                    print("Thanks for trying FischGPT!")
                     break
                 elif user_input.lower() == 'help':
-                    print("\n💡 Tips:")
+                    print("\nTips:")
                     print("• Ask technical questions: 'Explain transformers'")
                     print("• Request code: 'Write a sorting algorithm'") 
                     print("• Get help: 'How do I learn ML?'")
@@ -170,39 +170,39 @@ class FischGPTDemo:
                 elif not user_input:
                     continue
                 
-                print("🤖 FischGPT is thinking...")
+                print("FischGPT is thinking...")
                 result = self.generate_response(user_input, max_length=250, temperature=0.8)
                 
                 if "error" in result:
-                    print(f"❌ {result['error']}")
+                    print(f"{result['error']}")
                     continue
                 
                 print(f"FischGPT: {result['response']}")
-                print(f"⚡ {result['tokens']} tokens, {result['speed']:.1f} tok/s")
+                print(f"{result['tokens']} tokens, {result['speed']:.1f} tok/s")
                 print()
                 
             except KeyboardInterrupt:
-                print("\n👋 Demo interrupted. Thanks for trying FischGPT!")
+                print("\nDemo interrupted. Thanks for trying FischGPT!")
                 break
             except Exception as e:
-                print(f"❌ Error: {e}")
+                print(f"Error: {e}")
     
     def technical_showcase(self):
         """Show technical details for professional presentation."""
         
-        print("\n🏆 TECHNICAL ACHIEVEMENTS")
+        print("\nTECHNICAL ACHIEVEMENTS")
         print("=" * 50)
-        print("🏗️  Built from scratch - No pre-existing transformer libraries")
-        print("⚡  Flash attention using F.scaled_dot_product_attention")
-        print("🎯  Mixed precision training (bfloat16)")
-        print("🚀  Distributed training with DistributedDataParallel")
-        print("📊  Trained on 10B tokens (FineWeb-Edu) + OpenAssistant SFT")
-        print("🤗  Professional HuggingFace deployment")
+        print("Built from scratch - No pre-existing transformer libraries")
+        print("Flash attention using F.scaled_dot_product_attention")
+        print("Mixed precision training (bfloat16)")
+        print("Distributed training with DistributedDataParallel")
+        print("Trained on 10B tokens (FineWeb-Edu) + OpenAssistant SFT")
+        print("Professional HuggingFace deployment")
         print()
-        print(f"🔗 Model Hub: https://huggingface.co/{self.model_id}")
-        print("📁 Architecture: GPT-2 style (12 layers, 768 hidden, 12 heads)")
-        print("💾 Parameters: ~124M parameters")
-        print("🔤 Context: 1024 tokens")
+        print(f"Model Hub: https://huggingface.co/{self.model_id}")
+        print("Architecture: GPT-2 style (12 layers, 768 hidden, 12 heads)")
+        print("Parameters: ~124M parameters")
+        print("Context: 1024 tokens")
         print()
     
     def run_demo(self):
@@ -210,7 +210,7 @@ class FischGPTDemo:
         
         # Load model
         if not self.load_model():
-            print("❌ Cannot proceed without model. Check your internet connection.")
+            print("Cannot proceed without model. Check your internet connection.")
             return
         
         # Technical showcase
@@ -221,11 +221,11 @@ class FischGPTDemo:
         
         # Interactive mode
         print("\n" + "=" * 50)
-        choice = input("🎯 Enter interactive mode? (y/n): ").strip().lower()
+        choice = input("Enter interactive mode? (y/n): ").strip().lower()
         if choice in ['y', 'yes', '']:
             self.interactive_mode()
         
-        print("\n🎉 Demo completed!")
+        print("\nDemo completed!")
 
 def main():
     """Main entry point."""
