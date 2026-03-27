@@ -51,17 +51,8 @@ This mirrors how major AI labs organize their code:
 ## Getting Started
 
 
-## Training
+## Demo
 
 ```bash
-python scripts/train.py
+python scripts/demo.py
 ```
-
-## Generation
-
-```bash
-python scripts/generate.py --checkpoint path/to/model.pt --prompt "Your prompt here"
-```
-
-
-This structure helps you think like a top AI engineer - understanding each component deeply before seeing how they work together.
